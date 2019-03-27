@@ -10,20 +10,22 @@
   </ul>
 </div>
 <script type="text/javascript">
-var list = document.querySelector('.output ul');
-list.innerHTML = '';
-var cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
-
-for (var i = 0; i < cities.length; i++) {
-  var input = cities[i];
-  // write your code just below here
-  input = input.toLowerCase();
-  input = input[i].toUpperCase();
-  var result = input;
-  var listItem = document.createElement('li');
-  listItem.textContent = result;
-  list.appendChild(listItem);
+var choices = ['Rock', 'Paper' , 'Scissors'];
+computerPlay = function(){
+  var chioce = choices[Math.floor(Math.random() * choices.length)];
+  console.log(chioce);
 }
+
+playRound = function(playerSelection , computerSelection){
+  playerSelection.toLowerCase();
+  firstLetter = playerSelection.slice(0,1);
+  firstLetter = firstLetter.toUpperCase();
+  playerSelection = playerSelection.replace(playerSelection[0], firstLetter);
+  return(playerSelection + computerSelection)
+}
+  const playerSelection = 'rock';
+  const computerSelection = computerPlay();
+  console.log(playRound(playerSelection, computerSelection))
 </script>
 </body>
 </html>
