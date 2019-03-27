@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<div class="output">
+  <ul>
+    
+  </ul>
+</div>
+<script type="text/javascript">
+var list = document.querySelector('.output ul');
+list.innerHTML = '';
+var cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+
+for (var i = 0; i < cities.length; i++) {
+  var input = cities[i];
+  // write your code just below here
+  input = input.toLowerCase();
+  input = input[i].toUpperCase();
+  var result = input;
+  var listItem = document.createElement('li');
+  listItem.textContent = result;
+  list.appendChild(listItem);
+}
+</script>
+</body>
+</html>
