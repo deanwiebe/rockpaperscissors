@@ -12,20 +12,24 @@
 <script type="text/javascript">
 var choices = ['Rock', 'Paper' , 'Scissors'];
 computerPlay = function(){
-  var chioce = choices[Math.floor(Math.random() * choices.length)];
-  console.log(chioce);
+  var choice = choices[Math.floor(Math.random() * choices.length)];
+  return(choice);
 }
 
-playRound = function(playerSelection , computerSelection){
+var cock = prompt('what is your selection?');
+ playRound = function(playerSelection , computerSelection){
+  cock = playerSelection;
   playerSelection.toLowerCase();
   firstLetter = playerSelection.slice(0,1);
   firstLetter = firstLetter.toUpperCase();
   playerSelection = playerSelection.replace(playerSelection[0], firstLetter);
   return(playerSelection + computerSelection)
 }
-  const playerSelection = 'rock';
+  
   const computerSelection = computerPlay();
-  console.log(playRound(playerSelection, computerSelection))
+  console.log(playRound(playerSelection, computerSelection)) 
 </script>
 </body>
 </html>
+
+<!--we need a switch statment to run through all the possible ifs-->
