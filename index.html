@@ -19,14 +19,18 @@ computerPlay = function(){
   return(choice);
 }
 
-/*gets playerSection and to lowerCase*/
+/*gets playerSection and to lowerCase and first letter toUpperCase*/
+playerPlay = function(){
 var playerSelection = prompt('What is your choice?').toLowerCase();
   firstLetter = playerSelection.slice(0,1);
   firstLetter = firstLetter.toUpperCase();
   playerSelection = playerSelection.replace(playerSelection[0], firstLetter);
+  return(playerSelection);
+}
 
-  /*sets score to zero*/
-  var score = 0;
+  /*sets scores to zero*/
+  var playerScore = 0;
+  var computerScore = 0;
 
 /* playes one round of game*/
  playRound = function(playerSelection , computerSelection){
@@ -34,18 +38,47 @@ var playerSelection = prompt('What is your choice?').toLowerCase();
     console.log('Tie!')
   } else if(playerSelection == 'Rock' && computerSelection == 'Paper'){
     console.log('You lose! Paper covers Rock');
+    computerScore ++
   } else if(playerSelection == 'Rock' && computerSelection == 'Scissors'){
     console.log('You win! Rock smashes Scissors');
-    score ++;
+    playerScore ++;
   } else if (playerSelection == 'Paper' &&  computerSelection == 'Rock'){
     console.log('You win! Paper covers Rock');
-    score ++;
+    playerScore ++;
+  } else if (playerSelection == 'Paper' && computerSelection == 'Paper'){
+    console.log('Tie!');
+  } else if (playerSelection == 'Paper' && computerSelection == 'Scissors'){
+    console.log('You lose! Scissors cut Paper');
+    computerScore ++;
+  } else if (playerSelection == 'Scissors' && computerSelection == 'Rock'){
+    console.log('You lose! Rock smashes Scissors');
+    computerScore ++;
+  } else if(playerSelection == 'Scissors' && computerScore == 'Paper'){
+    console.log('You win! Scissors cut Paper');
+    playerScore ++;
+  } else if(playerSelection == 'Scissors' && computerSelection == 'Scissors'){
+    console.log('Tie!');
   };
   return(playerSelection + computerSelection)
-}
-  
+};
+
+/*sets constants to be used in functions*/
+  const playerSelection = playerPlay();
   const computerSelection = computerPlay();
   console.log(playRound(playerSelection, computerSelection)) 
+
+  game = function(){
+    for(i = 0; i < 5; i++){
+      playRound();
+      if(playerScore > computerScore){
+        console.log('happy days are here again! you win!')
+      } else {
+        console.log('you a loser')
+      }
+    };
+  };
+  game();
+
 
 </script>
 </body>
