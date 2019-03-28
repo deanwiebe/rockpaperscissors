@@ -68,14 +68,11 @@ var playerSelection = prompt('What is your choice?').toLowerCase();
   console.log(playRound(playerSelection, computerSelection)) 
 
   game = function(){
-    for(i = 0; i < 5; i++){
-      playRound();
-      if(playerScore > computerScore){
-        console.log('happy days are here again! you win!')
-      } else {
-        console.log('you a loser')
-      }
-    };
+    for(i = 0; i < 5 ; i++)
+  if(computerScore < 5 || playerScore < 5){
+      playRound(playerSelection, computerSelection);
+  };
+
   };
   game();
 
